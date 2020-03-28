@@ -46,12 +46,12 @@
   </thead>
   <tbody>
      
-      @foreach ($posts as $post)
+      <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <tr>
   
-      <td>{{$post['id']}}</td>
-      <td>{{$post['title']}}</td>
-      <td>{{$post['posted_by']}}</td>
+      <td><?php echo e($post['id']); ?></td>
+      <td><?php echo e($post['title']); ?></td>
+      <td><?php echo e($post['posted_by']); ?></td>
       <td>--</td>
       <td><button type="button" class="btn btn-primary">Primary</button>
       <button type="button" class="btn btn-warning">Warning</button>
@@ -59,7 +59,7 @@
 
 </td>
     </tr>
-    @endforeach
+    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
   </tbody>
 </table>
 
@@ -70,4 +70,4 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
-</html>
+</html><?php /**PATH /home/yara/laravel-v2/laravel-blog/resources/views/posts.blade.php ENDPATH**/ ?>
