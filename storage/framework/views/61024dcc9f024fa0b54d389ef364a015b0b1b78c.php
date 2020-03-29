@@ -49,9 +49,10 @@
       <?php $__currentLoopData = $posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $post): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
     <tr>
   
-      <td><?php echo e($post['id']); ?></td>
-      <td><?php echo e($post['title']); ?></td>
-      <td><?php echo e($post['posted_by']); ?></td>
+      <td><?php echo e($post->id); ?></td>
+      <td><?php echo e($post->title); ?></td>
+      <td><?php echo e($post->posted_by); ?></td>
+      <td><?php echo e($post->created_at); ?></td>
       <td>--</td>
       <td><button type="button" class="btn btn-primary">Primary</button>
       <button type="button" class="btn btn-warning">Warning</button>

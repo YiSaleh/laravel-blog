@@ -49,9 +49,10 @@
       @foreach ($posts as $post)
     <tr>
   
-      <td>{{$post['id']}}</td>
-      <td>{{$post['title']}}</td>
-      <td>{{$post['posted_by']}}</td>
+      <td>{{$post->id}}</td>
+      <td>{{$post->title}}</td>
+      <td>{{$post->posted_by}}</td>
+      <td>{{$post->created_at}}</td>
       <td>--</td>
       <td><button type="button" class="btn btn-primary">Primary</button>
       <button type="button" class="btn btn-warning">Warning</button>

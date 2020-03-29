@@ -16,4 +16,18 @@ class PostsController extends Controller
     ]);
 
     }
+
+    public function show(){
+        $request =request();
+        $postId= $request->post;
+
+
+        $post= Post::find($postId);
+        
+
+
+        return view('show',[
+            'post'=>$post
+        ]);
+    }
 }
