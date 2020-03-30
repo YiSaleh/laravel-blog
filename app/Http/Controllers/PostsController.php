@@ -30,4 +30,35 @@ class PostsController extends Controller
             'post'=>$post
         ]);
     }
+
+
+
+
+    public function create(){
+
+        return view('create');
+
+    }
+
+
+    public function store(){
+        $request =request();
+
+
+
+    
+
+    Post::create([
+        'title'=> $request->title,
+       
+        'posted_by'=>$request->creator,
+        'discription'=> $request->discription,
+    ]);
+
+   return redirect('/posts');
+   
 }
+}
+
+
+
