@@ -1,4 +1,5 @@
 <?php $__env->startSection('content'); ?>
+<container style="margin:50px">
 <a href="<?php echo e(route('posts.create')); ?>" type="button" class="btn btn-success">create post</a>
 
 
@@ -21,7 +22,7 @@
       <td><?php echo e($post->title); ?></td>
       <td><?php echo e($post->posted_by); ?></td>
       <td><?php echo e($post->created_at); ?></td>
-      <td>--</td>
+      
       <td><a href="/posts/<?php echo e($post->id); ?>" type="button" class="btn btn-success">View</a>
       <a href="/posts/1" type="button" class="btn btn-warning">View</a>
       <a href="/posts/1" type="button" class="btn btn-warning">View</a></td>
@@ -32,5 +33,8 @@
     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </tbody>
 </table>
+</container>
 <?php $__env->stopSection(); ?>
+
+
 <?php echo $__env->make('layout.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/yara/laravel-v2/laravel-blog/resources/views/posts.blade.php ENDPATH**/ ?>

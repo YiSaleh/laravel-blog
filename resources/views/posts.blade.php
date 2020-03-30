@@ -1,6 +1,7 @@
 @extends('layout.app')
 
 @section('content')
+<container style="margin:50px">
 <a href="{{route('posts.create')}}" type="button" class="btn btn-success">create post</a>
 
 
@@ -23,7 +24,7 @@
       <td>{{$post->title}}</td>
       <td>{{$post->posted_by}}</td>
       <td>{{$post->created_at}}</td>
-      <td>--</td>
+      
       <td><a href="/posts/{{$post->id}}" type="button" class="btn btn-success">View</a>
       <a href="/posts/1" type="button" class="btn btn-warning">View</a>
       <a href="/posts/1" type="button" class="btn btn-warning">View</a></td>
@@ -34,4 +35,6 @@
     @endforeach
     </tbody>
 </table>
+</container>
 @endsection
+

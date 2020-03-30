@@ -10,7 +10,7 @@ class Post extends Model
 
         'title',
         'discription',
-        'creator',
+        'posted_by',
         
     ];
     
