@@ -1,17 +1,32 @@
 <?php
 
 namespace App;
+use Carbon\Carbon;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Post extends Model
 {
-    protected $fillable =[
+   use Sluggable;
+     public function user(){
+        return $this->belongsTo('App\User');
 
-        'title',
-        'discription',
-        'posted_by',
-        
-    ];
-    
+
+     }
+
+     public function getCreatedAtAttribute($value)
+    {
+       $carbon = new Carbon($value); 
+        return  $carbon->toDateString();
+    }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+   }
 }

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +17,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/posts', 'PostsController@index');
+Route::middleware('auth')->group(function () {
+    Route::get('/posts','PostController@index')->name('posts.index') ;
 
-Route::get('/posts/create', 'PostsController@create')->name('posts.create');
+
+    Route::get('/posts/create','PostController@create')->name('posts.create') ;
+    
+    Route::post('/posts','PostController@store')->name('posts.store') ;
+    
+    Route::get('/posts/{post}','PostController@show')->name('posts.show') ;
+    
+    
+    
+    Route::get('/posts/{post}/edit','PostController@edit')->name('posts.edit') ;
+    
+    
+    Route::put('/posts/{post}','PostController@update')->name('posts.update') ;
+    
+    Route::delete('/posts/{post}','PostController@delete')->name('posts.delete') ;
+    
+   
+});
+
+Route::get('/home', 'HomeController@index')->name('home') ;
+Auth::routes();
+
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
 
 
-Route::post('/posts', 'PostsController@store')->name('posts.store');
-
-Route::get('/posts/{post}', 'PostsController@show')->name('posts.show');
